@@ -53,9 +53,9 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="45" value="orders" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=20;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="414" y="250" width="106" height="100" as="geometry"/>
+                    <mxGeometry x="413.5" y="250" width="106" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" value="-  user_id&#10;-  item_id&#10;-  address_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=15;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="45">
+                <mxCell id="46" value="-  user_id&#10;-  item_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=15;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="45">
                     <mxGeometry y="30" width="106" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="51" style="edgeStyle=none;html=1;fontSize=20;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;verticalAlign=middle;strokeWidth=2;endSize=15;startSize=15;entryX=-0.018;entryY=0.14;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.7;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="3" target="46">

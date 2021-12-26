@@ -37,7 +37,7 @@
 
 - belongs_to :user
 - has_many :comments
-- hus_one :order
+- has_one :order
 
 ## addresses テーブル
 
@@ -59,7 +59,6 @@
 
 | user         | references    | null:false, foreign_key: true |
 | item         | references    | null:false, foreign_key: true |
-| address      | references    | null:false, foreign_key: true |
 
 ### Association
 
