@@ -37,17 +37,19 @@
 
 - belongs_to :user
 - has_many :comments
+- hus_one :order
 
 ## addresses テーブル
 
-| Column       | Type          | Options                       |
-| ------------ | ------------- | ----------------------------- |
-| postal-code  | text          | null:false                    |
-| prefecture   | string        | null:false                    |
-| city         | string        | null:false                    |
-| address      | string        | null:false                    |
-| building     | string        | null:false                    |
-| phone-number | string        | null:false                    |
+| Column        | Type          | Options                       |
+| ------------- | ------------- | ----------------------------- |
+| postal-code   | string        | null:false                    |
+| prefecture_id | integer       | null:false                    |
+| city          | string        | null:false                    |
+| address       | string        | null:false                    |
+| building      | string        |                               |
+| phone-number  | string        | null:false                    |
+| order         | references    | null:false, foreign_key: true |
 
 ### Association
 
@@ -57,12 +59,13 @@
 
 | user         | references    | null:false, foreign_key: true |
 | item         | references    | null:false, foreign_key: true |
+| address      | references    | null:false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - has_one :address
-
+- belongs_to :item
 
 ## comments テーブル
 
