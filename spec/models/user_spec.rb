@@ -64,11 +64,6 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
       end
-      it 'nameが41文字以上では登録できない' do
-        @user.name = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-        @user.valid?
-        expect(@user.errors.full_messages).to include 'Name is too long (maximum is 40 characters)'
-      end
       it '重複したemailが存在する場合登録できない' do
         @user.save
         another_user = FactoryBot.build(:user)
@@ -107,6 +102,22 @@ RSpec.describe User, type: :model do
         @user.first_name_kana = 'bbb'
         @user.valid?
         expect(@user.errors.full_messages).to include 'First name kana is invalid. Input full-width katakana characters.'
+      end
+      it 'メールアドレスに@を含まない場合は登録できない' do
+        @user.email = 'aaa.com'
+        @user.valid?
+        expect(@user.errors.full_messages).to include 'Email is invalid'
+      end
+      it '英字のみのパスワードでは登録できない' do
+        @user.password = 'aaaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include 'Password is invalid. Include both letters and numbers.'
+      end
+      it '全角文字を含むパスワードでは登録できない' do
+        @user.password = 'AAA111'
+        @user.valid?
+        binding.pry
+        expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
       end
     end
   end
