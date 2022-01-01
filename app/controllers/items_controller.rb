@@ -6,7 +6,7 @@ before_action :authenticate_user!, only: [:new]
   end
 
   def new
-    @items = Item.new
+    @item = Item.new
   end
 
   def create
