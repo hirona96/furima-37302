@@ -58,7 +58,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Image can't be blank"
       end
-      it 'priceが全角数値では出品できない' do
+      it 'priceが数値以外では出品できない' do
         @item.price = '３０００'
         @item.valid?
         expect(@item.errors.full_messages).to include 'Price is invalid. Input half-width characters'
