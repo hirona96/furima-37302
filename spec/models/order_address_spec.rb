@@ -31,9 +31,9 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include "Postal code can't be blank"
       end
       it 'postal_codeが半角のハイフンを含んでいなければ保存できない' do
-        @order_address.postal_code = 1111111
+        @order_address.postal_code = 1_111_111
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include "Postal code is invalid. Enter it as follows (e.g. 123-4567)"
+        expect(@order_address.errors.full_messages).to include 'Postal code is invalid. Enter it as follows (e.g. 123-4567)'
       end
       it 'prefecture_idが空では保存できない' do
         @order_address.prefecture_id = 1
@@ -58,7 +58,7 @@ RSpec.describe OrderAddress, type: :model do
       it 'phone_numberが10桁以上11桁以内の半角数値でなければ保存できない' do
         @order_address.phone_number = '000-0000-0000'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include "Phone number is invalid. Input only number"
+        expect(@order_address.errors.full_messages).to include 'Phone number is invalid. Input only number'
       end
       it 'userが紐付いていないと保存できない' do
         @order_address.user_id = nil
@@ -70,7 +70,6 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include "Item can't be blank"
       end
-    end 
+    end
   end
 end
-
