@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     @order_address = OrderAddress.new
-    redirect_to root_path unless (current_user.id == @item.user.id && @item.order.nil?) || (current_user.id != @item.user.id && @item.order.nil?)
+    redirect_to root_path unless current_user.id != @item.user.id && @item.order.nil?
   end
 
   def create
