@@ -60,6 +60,16 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include 'Phone number is invalid. Input only number'
       end
+      it 'phone_numberが9桁以下では購入できない' do
+        @order_address.phone_number = '0000000'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include 'Phone number is invalid'
+      end
+      it 'phone_numberが12桁以上では購入できない' do
+        @order_address.phone_number = '000000000000000'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include 'Phone number is invalid'
+      end
       it 'userが紐付いていないと保存できない' do
         @order_address.user_id = nil
         @order_address.valid?

@@ -10,8 +10,13 @@ class OrderAddress
     validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :city
     validates :address
-    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: 'is invalid. Input only number' }
   end
+
+  VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
+validates :phone_number, presence: true, format: { with: VALID_PHONE_REGEX }
+validates :phone_number, numericality: { only_integer: true, message: 'is invalid. Input only number' }
+
+
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
